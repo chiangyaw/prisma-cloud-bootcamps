@@ -111,7 +111,7 @@ Explore the icons within the Attack Path graph. In the screenshots below we can 
 
 ![](/screenshots/v-and-c/Screenshot2024-02-13at4.31.37PM.png)
 
-18. Now let's click on the **Incidents** tab. The Incidents tab filters events that depend on audit/network logging and monitoring of runtime events via an agent.
+18. Now let's click on the **Incidents** tab. The Incidents tab filters events that depend on audit/network logging and monitoring of runtime events via an agent. You will need to change the filter to **Past 6 months** for the following steps.
 
 ![](/screenshots/v-and-c/Screenshot2024-02-13at5.23.29PM.png)
 
@@ -121,15 +121,7 @@ Click on the **Traffic from a suspicious IP address associated with Cryptominer 
 
 ![](/screenshots/v-and-c/Screenshot2024-02-13at5.37.01PM.png)
 
-19. Next let's explore some more **Risky Attack Paths**. On this tab you can find an inventory of attack paths present within Exampli Corp's network. 
-
-![](/screenshots/v-and-c/Screenshot2024-02-13at5.52.45PM.png)
-
-Scroll down and click on the **Data exposure risk due to AWS S3 hosting static website contains sensitive information** policy to expand the alerts and then click on an Alert ID to open a sidecar window to review the evidence. Feel free to explore other events.
-
-![](/screenshots/v-and-c/Screenshot2024-02-13at6.00.52PM.png)
-
-20. Close the sidecar window and click on the **Exposure** tab next. This view shows all Network policy type violations within Exampli Corp's assets.
+19. Now move on to the **Exposure** tab after clicking X to close the sidecar window. Change the Time Range filter to **Past 6 Months**. This view shows all Network policy type violations within Exampli Corp's assets. 
 
 ![](/screenshots/v-and-c/Screenshot2024-02-13at6.08.15PM.png)
 
@@ -139,15 +131,17 @@ Let's investigate the **Azure Virtual Machine in running state that is internet 
 
 ![](/screenshots/v-and-c/Screenshot2024-02-13at6.20.28PM.png)
 
-21. Close out any sidecar windows and select the **CIEM** tab to discover resources that have misconfigured permissions. 
+20. Close out any sidecar windows and select the **CIEM** tab by clicking **Menu** first, to discover resources that have misconfigured permissions. You will also need to change the Time Range filter to **Past 6 Months**.
 
-![](/screenshots/v-and-c/Screenshot2024-02-13at6.24.23PM.png)
+![](/screenshots/v-and-c/pcs-ciem-1.png)
 
-Click on the **AWS Lambda Function with IAM write permissions** policy to expand the alerts. Click on one of the alerts to see an overview and recommendation to resolve the issue.
+Click on the **AWS Users and Machine Identities with IAM Data Write permissions are unused for 90 days** policy to expand the alerts. Click on one of the alerts to see an overview and recommendation to resolve the issue.
 
-![](/screenshots/v-and-c/Screenshot2024-02-13at6.35.57PM.png)
 
-![](/screenshots/v-and-c/Screenshot2024-02-13at6.38.31PM.png)
+
+![](/screenshots/v-and-c/pcs-ciem-2.png)
+
+![](/screenshots/v-and-c/pcs-ciem-3.png)
 
 
 
@@ -156,7 +150,7 @@ In this section we explored the various filtered views of alerts discovered by P
 
 #### Compliance in the Cloud
 
-Many organizations struggle maintaining a grasp on compliance in the cloud. So far we have inspected Exampli's IaC and found some troubling trends. Additionally, at runtime many assets are still vulnerable due to risky configurations and careless development practices.
+Many organizations struggle maintaining a grasp on compliance in the cloud. Prisma Cloud supports compliance checks for IaC. Additionally, at runtime many assets are still vulnerable due to risky configurations and careless development practices.
 
 With multiple upcoming compliance audits bearing down on Exampli's CISO's calendar it's time to begin reporting on what is in a failed state and what needs to be done to get the organization's cloud footprint compliant.
 
@@ -164,25 +158,29 @@ With multiple upcoming compliance audits bearing down on Exampli's CISO's calend
 
 ![Alt text for image](/screenshots/shift_left/compliance-in-the-cloud-1.png "Optional title")
 
-2. Leverage the filters to adjust the results and select **GCP** for the **Cloud Type**. Refine the filters even more and select the compliance framework **CIS v1.1.0 (GCP)**.
+2. Leverage the filters to adjust the results and select **AWS** for the **Cloud Type**. Refine the filters even more and select the compliance framework **MAS TRM 2021**. MAS TRM is a guideline that is generally adopted by Financial Institutes in Singapore, and often used as a compliance requirement.
 
-![Alt text for image](/screenshots/shift_left/compliance-in-the-cloud-2.png "Optional title")
+![](/screenshots/v-and-c/pcs-compliance-1.png)
 
 3. Click on the Compliance Standard Name from the results to see which services have policies applied for that standard. Prisma Cloud provides a nice breakdown of each service type for easy referencing. 
 
-![Alt text for image](/screenshots/shift_left/compliance-in-the-cloud-3.png "Optional title")
+![](/screenshots/v-and-c/pcs-compliance-2.png)
 
-4. This provides a focused view of Exampli's GCP footprint and its adherence to this CIS Standard.
+4. This provides a focused view of Exampli's AWS footprint and its adherence to this MAS TRM Standard.
 
-It looks like the **Networking** service has a policy failure. Click on the red "i" icon under the **Failed** column. This will give us a view of the assets associated with the CIS policy failure. Your screen should look similar to the screen capture below :
+Lets look into an example. Click on **Data and Infrastructure Security**, and click on the number *5* in the Policies Assigned column, which is on the same row as 11.2.4. 
 
-![Alt text for image](/screenshots/shift_left/compliance-in-the-cloud-4.png "Optional title")
+![](/screenshots/v-and-c/pcs-compliance-3.png)
 
-5. Click on the **Alert ID** associated with the **default** Asset name. A side window opens that provides an Overview, Recommendation, Asset Config and Alert Rules. Additionally, the alert can be sent to a third party integration, like JIRA, for automated ticket creation. Reports can also be generated so you'll be ready for the next assessment and audit. 
+Look into the different policies assigned to this section, click on the **Alert** icon for the Policy **AWS Security Group allow all traffic on SSH port (22)**.
 
-![Alt text for image](/screenshots/shift_left/compliance-in-the-cloud-5a.png "Optional title")
+![](/screenshots/v-and-c/pcs-compliance-4.png)
 
-![Alt text for image](/screenshots/shift_left/compliance-in-the-cloud-5b.png "Optional title")
+5. Click on **AWS Security Group allows all traffic on SSH port (22)** and clikc on any of the **Alert ID**. A side window opens that provides an Overview, Recommendation, Asset Config and Alert Rules. Additionally, the alert can be sent to a third party integration, like JIRA, for automated ticket creation. Reports can also be generated so you'll be ready for the next assessment and audit. 
+
+![](/screenshots/v-and-c/pcs-compliance-5.png)
+
+![](/screenshots/v-and-c/pcs-compliance-6.png)
 
 In this lab we covered various topics around CSPM but there are many additional features and capabilities within Prisma Cloud. Feel free to explore the UI and investigate further.
 

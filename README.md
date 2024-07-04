@@ -14,4 +14,4 @@ This workshop covers a quick overview on Prisma Cloud approach towards cloud sec
 
 This workshop will be mainly carried out on a Prisma Cloud demo tenant. Minimally, you will need a laptop with good internet connection & a reliable browser. The access to the Prisma Cloud demo tenant would be read-only, hence the participant will not be able to make any changes to the environment.
 
-To access the lab environment, you will need a credential from the lab instructor and access Prisma Cloud demo tenant [here](https://app3.prismacloud.io/login).
+To access the lab environment, you will need a credential from the lab instructor and access Prisma Cloud demo tenant [here](https://app3.prismacloud.io/login). Once done, you can move on to the lab [here](/01-Visibility-and-Control-Lab-Guide.md) to get started!

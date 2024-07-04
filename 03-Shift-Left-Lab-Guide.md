@@ -68,31 +68,33 @@ In this exercise, we will take a look at some IaC templates within Exampli Corp�
 
 ![Alt text for image](/screenshots/shift_left/find-and-fix-insecure-infrastructure-code-5.png "Optional title")
 
-6. Once you have selected the correct repository, filter by "High" severity and let's take a look at some troubling misconfigurations found in the GCP Terraform templates. Click on the search icon ![Alt text for image](/screenshots/shift_left/search-icon.png "Optional title") and search for **SQL**
+6. Once you have selected the correct repository, filter by "High" severity and let's take a look at some troubling misconfigurations found in the AWS Terraform templates. Click on the search icon ![Alt text for image](/screenshots/shift_left/search-icon.png "Optional title") and search for **IMDSv2**
+
+Note: The search here is case sensitive.
 
 ![Alt text for image](/screenshots/shift_left/find-and-fix-insecure-infrastructure-code-6a.png "Optional title")
 
-![Alt text for image](/screenshots/shift_left/find-and-fix-insecure-infrastructure-code-6b.png "Optional title")
+![](/screenshots/shift_left/pcs-code-1.png)
 
 7. Now that we have filtered by severity and search term, explore the different misconfigurations and
-click on the Resource associated with the **_GCP SQL database is publicly accessible_** policy.
+click on the Resource associated with the **_AWS EC2 instance not configured with Instance Metadata Service v2_** policy.
 
-![Alt text for image](/screenshots/shift_left/find-and-fix-insecure-infrastructure-code-7.png "Optional title")
+![](/screenshots/shift_left/pcs-code-3.png)
 
 8. Note the side panel window after clicking the policy. Click on the **See policy documentation** hyperlink to see guidelines on how to resolve the
 misconfiguration. Below is an example of how the policy box will look and the type of information you will see.
 
-![Alt text for image](/screenshots/shift_left/find-and-fix-insecure-infrastructure-code-8.png "Optional title")
+![](/screenshots/shift_left/pcs-code-2.png)
 
 9. Reviewing the guidelines we can see the description of this misconfiguration, its potential risk, and how to remediate at build time and runtime.
 
-![Alt text for image](/screenshots/shift_left/find-and-fix-insecure-infrastructure-code-9.png "Optional title")
+![](/screenshots/shift_left/pcs-code-4.png)
 
 10. Now navigate back to the Prisma Cloud platform. Click on the associated SQL database resource and view the helpful information about the misconfiguration such as its history, errors, details, and traceability. It also will give you an option to view the resource in its VCS.
 
-![Alt text for image](/screenshots/shift_left/find-and-fix-insecure-infrastructure-code-10.png "Optional title")
+![](/screenshots/shift_left/pcs-code-5.png)
 
-11. This misconfiguration makes the database available to the internet. This database contains Personally Identifiable Information such as user credentials and financial information. By using Prisma Cloud code security, the Exampli Corp security team can avoid costly mistakes and protect the integrity of the database and application. 
+11. This misconfiguration makes the instance's metadata accessible through a request/reponse method without authentication. With a shell access to the instance, the attack is able to gain access to the metadata such as AWS access key, secret key and session key, which can be used to assume the role, and access important information in the environment.
 
 **There are many other examples to explore in the Exampli repo, feel free to use the filters and search bar to explore additional resources and findings.**
 
@@ -100,31 +102,27 @@ misconfiguration. Below is an example of how the policy box will look and the ty
 
 1. Depending on the nature of a misconfiguration, Prisma Cloud can provide single click remediation. This capability creates a pull request that is sent to the version control system where the IaC template is stored.
 
-Looking at the same **big_data.tf** template, there is another HIGH severity misconfiguration for lack of SSL on SQL database connections.
+Looking at the same **ec2.tf** template, on the same misconfigration for not enabling IMDSv2. Detailed recommendation has been provided as part of the findings.
 
-![Alt text for image](/screenshots/shift_left/generating-pull-requests-1.png "Optional title")
+![](/screenshots/shift_left/pcs-code-6.png)
 
-2. This resource is a fully managed relational database service for MySQL, PostgreSQL and SQL Server. It is recommended to enable SSL but we can see it is not configured in this resource's template.
+**PR submission and Fix capability requires increased RBAC capabilities and is not available to read-only users**
 
-**The Suppress and Fix capability requires increased RBAC capabilities and is not available to read-only users**
+3. Pull requests have been created previously for various findings. To access the VCS associated with this IaC resource click the git link under the Details tab. 
 
-3. Pull requests have been created previously for various findings. To access the VCS associated with this IaC resource click the git link under the Details tab. We can also see the developer who committed the last change associated with this IaC resource.
+![](/screenshots/shift_left/pcs-code-7.png)
 
-![Alt text for image](/screenshots/shift_left/generating-pull-requests-3a.png "Optional title")
+4. After clicking the git link we see the last commit associated with the **ec2.tf** IaC template.
 
-![Alt text for image](/screenshots/shift_left/generating-pull-requests-3b.png "Optional title")
-
-4. After clicking the git link we see the last commit associated with the **big_data.tf** IaC template. Highlighted is the **ip_configuration** parameter which does not include the SSL enablement.
-
-![Alt text for image](/screenshots/shift_left/generating-pull-requests-4.png "Optional title")
+![](/screenshots/shift_left/pcs-code-8.png)
 
 5. To view the fix generated by Prisma Cloud let's take a look at the pull requests tab at the top of the github UI.
 
 ![Alt text for image](/screenshots/shift_left/generating-pull-requests-5.png "Optional title")
 
-6. Once on the Pull Requests view take a look at the [PR](https://github.com/c-haisten/Exampli/pull/1) and its associated [commit](https://github.com/c-haisten/Exampli/pull/1/commits/a79745d0a19acc3418db6fcd7ce40e11659de75a). Examining the changes, the ‘require_ssl = true’ setting has been added to the big_data.tf template.
+6. Once on the Pull Requests view take a look at the [PR](https://github.com/c-haisten/Exampli/pull/5) and its associated [commit](https://github.com/c-haisten/Exampli/pull/5/commits/1ac078773d677bee1a74fb76ba99dc4c5cc78a7f). Examining the changes, the ‘http_token = "required"’ setting has been added to the ec2.tf template.
 
-![Alt text for image](/screenshots/shift_left/generating-pull-requests-6.png "Optional title")
+![](/screenshots/shift_left/pcs-code-9.png)
 
 Now that you have discovered the power and ease of remediating code fixes with Code security, let's explore how to detect and remediate exposed secrets embedded within Infrastructure as Code. 
 

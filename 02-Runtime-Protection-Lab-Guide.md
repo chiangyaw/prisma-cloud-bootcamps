@@ -76,7 +76,7 @@ How does this visibility help you protect your applications?**
 
 ![Alt text for image](/screenshots/runtime_protection/preventing-attacks-4.png "Optional title")
 
-8. Of the identified OS vulnerabilities, which one has the highest CVE? Do all the identified vulnerabilities contain a fix?
+8. Of the identified OS vulnerabilities, which one has the highest severity and risk factor? Do all the identified vulnerabilities contain a fix?
 
 9. Take a look at the **Layers** tab to view the dockerfile that built this image and find where vulnerabilities were introduced.
 
@@ -92,7 +92,7 @@ How does this visibility help you protect your applications?**
 
 ![Alt text for image](/screenshots/runtime_protection/preventing-attacks-3-v2.png "Optional title")
 
-#### Modeleing Application Behavior
+#### Modeling Application Behavior
 
 Prisma Cloud observes and logs behavior such as running processes, network behavior, and even binary executions. Prisma Cloud then takes this data and builds a model for each workload giving administrators an understanding of what is the normal working conditions of their applications. Armed with this information administrators both understand the behavior of their workloads and can prevent malicious actions from taking place.
 
@@ -126,11 +126,11 @@ Prisma Cloud observes and logs behavior such as running processes, network behav
 
 8. This view provides an expanded understanding of the finding. We can see that Prisma Cloud alerted on this finding due to the default rule to alert on suspicious behavior. Administrators can configure their own rules alert on or block malicious activity.
 
-9. Creating rules to defend applications is easy in Prisma Cloud by using the navigation bar on the left hand side of the UI and selecting **Runtime** under the **Defend** section.
+9. **(The following step is not available for read-only role, hence it is for information basis only)** Creating rules to defend applications is easy in Prisma Cloud by using the navigation bar on the left hand side of the UI and selecting **Runtime** under the **Defend** section.
 
 ![Alt text for image](/screenshots/runtime_protection/preventing-attacks-9.png "Optional title")
 
-10. On this page administrators can configure rules that make sense for their applications. There is a great deal of granularity given to Prisma Cloud administrators to configure allowed process, networking, and file system activities. Prisma Cloud defenders are also integrated with Palo Alto Network's WildFire anti-malware service allowing for the blocking of malware found on the application.
+10. **(The following step is not available for read-only role, hence it is for information basis only)** On this page administrators can configure rules that make sense for their applications. There is a great deal of granularity given to Prisma Cloud administrators to configure allowed process, networking, and file system activities. Prisma Cloud defenders are also integrated with Palo Alto Network's WildFire anti-malware service allowing for the blocking of malware found on the application.
 
 ![runtime-rules-blocking](https://github.com/c-haisten/c2c_summit/assets/98335592/3b0f5dcb-7e1f-4668-bf90-40d41964bf41)
 
@@ -148,11 +148,11 @@ In addition to image scanning, runtime visibility and protection; the Prisma Clo
 
 2. The green firewall log indicates that the front-end microservice is protected by Prisma Cloud.
 
-3. Administrators can define rules to provide web application and api security capabilities to protect web applications. Prisma Cloud supports VM Hosts, Containers, Embedded Applications, and function deployment architectures.
+3. **(The following step is not available for read-only role, hence it is for information basis only)** Administrators can define rules to provide web application and api security capabilities to protect web applications. Prisma Cloud supports VM Hosts, Containers, Embedded Applications, and function deployment architectures.
 
 ![Alt text for image](/screenshots/runtime_protection/preventing-attacks-10.png "Optional title")
 
-4. Administrators can define Custom Rules that provide Virtual Patching capabilities to protect against attacks exploiting CVE’s that have not yet been patched. For example check out the log4j blog where you can find more information about custom rules that were created to protect our customers. [Link](https://www.paloaltonetworks.com/blog/prisma-cloud/log-4-shell-vulnerability/)
+4. **(The following step is not available for read-only role, hence it is for information basis only)** Administrators can define Custom Rules that provide Virtual Patching capabilities to protect against attacks exploiting CVE’s that have not yet been patched. For example check out the log4j blog where you can find more information about custom rules that were created to protect our customers. [Link](https://www.paloaltonetworks.com/blog/prisma-cloud/log-4-shell-vulnerability/)
 
 5. Take a look at some of the attacks the defender has detected by navigating to **Monitor -> Events -> WAAS for containers**.
 

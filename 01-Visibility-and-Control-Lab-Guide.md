@@ -186,7 +186,7 @@ In this lab we covered various topics around CSPM but there are many additional 
 
 ## Summary \ Resources
 
-The Prisma Cloud team here at Palo Alto sincerely hopes you enjoyed this workshop. Check out the resources below for more information!
+The Prisma Cloud team here at Palo Alto sincerely hopes you enjoyed this section of the workshop. If you're meant to move on to the next section click [here](/02-Runtime-Protection-Lab-Guide.md). Or else, check out the resources below for more information!
 
 [Live Workshops](https://bridgecrew.io/resource/workshops/)
 

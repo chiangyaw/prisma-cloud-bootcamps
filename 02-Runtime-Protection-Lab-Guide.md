@@ -172,7 +172,7 @@ What container image was attacked?
 
 ## Summary \ Resources
 
-The Prisma Cloud team here at Palo Alto sincerely hopes you enjoyed this workshop. Today, organizations need a growing set of capabilities to secure modern cloud applications. Implementing AppSec into your development and security workflows with Prisma Cloud can provide the increased speed and agility your organization needs to implement zero trust throughout the entire development lifecycle. Check out the resources below for more information!
+The Prisma Cloud team here at Palo Alto sincerely hopes you enjoyed this workshop. Today, organizations need a growing set of capabilities to secure modern cloud applications. Implementing Runtime Protection into your development and security workflows with Prisma Cloud can provide the increased speed and agility your organization needs to implement zero trust throughout the entire development lifecycle. If you're meant to move on to the next section click [here](/03-Shift-Left-Lab-Guide.md). Or else, check out the resources below for more information!
 
 [Live Workshops](https://bridgecrew.io/resource/workshops/)
 
